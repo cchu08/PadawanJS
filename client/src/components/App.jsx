@@ -9,12 +9,12 @@
 
 
 import React, { Component } from 'react';
-import Nav from './Nav.react';
+import Nav from './Nav.jsx';
 import { connect } from 'react-redux';
 // import auth from '../utils/auth';
 
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
        <div>
@@ -24,6 +24,8 @@ export default class App extends Component {
     )
   }
 }
+
+// export default App
 
 function select(state) {
   return {
