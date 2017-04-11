@@ -1,13 +1,35 @@
+/**
+ *
+ * App.jsx
+ *
+ * This component is the skeleton around the actual pages, and should only
+ * contain code that should be seen on all pages. (e.g. navigation bar)
+ */
+
+
+
 import React, { Component } from 'react';
-import MentorList from '../containers/mentor_list.jsx';
-// import MentorDetail from '../containers/mentor_detail';
+import Nav from './Nav.react';
+import { connect } from 'react-redux';
+// import auth from '../utils/auth';
+
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <MentorList />
+       <div>
+        <Nav loggedIn={this.props.data.loggedIn} history={this.props.history} location={this.props.location} dispatch={this.props.dispatch} currentlySending={this.props.data.currentlySending} />
+        { this.props.children }
       </div>
     )
   }
 }
+
+function select(state) {
+  return {
+    data: state
+  };
+}
+
+// Wrap the component to inject dispatch and state into it
+export default connect(select)(App);
