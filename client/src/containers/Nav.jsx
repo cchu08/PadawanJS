@@ -19,7 +19,7 @@ class Nav extends Component {
   render() {
     // Render either the Log In and register buttons, or the logout button
     // based on the current authentication state.
-    const navButtons = this.props.authenticated ? (
+    let navButtons = this.props.authenticated ? (
         <div>
           <Link className="btn btn--login btn--nav" to="/mentorform">Become a Mentor!</Link>
           <Link className="btn btn--login btn--nav" to="/dashboard">Dashboard</Link>
@@ -31,6 +31,14 @@ class Nav extends Component {
           <Link className="btn btn--login btn--nav" to="/signin">Login</Link>
         </div>
       );
+
+    navButtons = this.props.mentorPrivileges ? (
+      <div>
+        <Link className="btn btn--login btn--nav" to="/dashboard">Jedi Dashboard</Link>
+        <Link className="btn btn--login btn--nav" to="/signout">Signout</Link>
+      </div>
+      ) :
+      navButtons;
 
     return(
       <div>
@@ -57,7 +65,8 @@ class Nav extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    mentorPrivileges: state.auth.mentor_privileges,
   };
 }
 
