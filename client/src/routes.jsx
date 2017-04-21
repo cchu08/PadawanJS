@@ -11,6 +11,8 @@ import MentorForm from './containers/auth/MentorFormMUI.jsx';
 import MentorPage from './components/MentorPage.jsx'
 import Signout from './containers/auth/Signout.jsx'
 import Dashboard from './components/Dashboard.jsx'
+import RequireAuth from './containers/auth/RequireAuth.jsx';
+import RequireMentor from './containers/auth/RequireMentor.jsx';
 
 export default (<Route
   component={App}
