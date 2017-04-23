@@ -29,5 +29,6 @@ export default (<Route
   <Route path="/signout" component={Signout} />
   <Route path="/profile/*" component={MentorPage} />
   <Route path="/dashboard" component={Dashboard} />
+  <Route path="/inbox/:id" component={DirectMessage} />
   </Route>
 );
