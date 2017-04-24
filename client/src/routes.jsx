@@ -32,6 +32,6 @@ export default (<Route
   <Route path="/profile/*" component={MentorPage} />
   <Route path="/dashboard" component={Dashboard} />
   <Route path="/inbox" component={Inbox} />
-  <Route path="/inbox/:id" component={DirectMessage} />
+  <Route path="/inbox/:id" component={DirectMessages} />
   </Route>
 );
