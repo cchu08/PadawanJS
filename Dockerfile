@@ -1,5 +1,5 @@
 # Use an official Node runtime as a base image
-FROM node:4-onbuild
+FROM node:0.12.7
 
 # Prepare app directory
 RUN mkdir -p /usr/src/app
@@ -19,4 +19,11 @@ RUN webpack
 
 
 # application's default port
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Start the app when container launches
+CMD ["/usr/local/bin/node", "./server/index.js" ]
+
+# expose the app port
 EXPOSE 3000

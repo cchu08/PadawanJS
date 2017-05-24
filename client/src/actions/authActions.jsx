@@ -11,7 +11,6 @@ export const SET_MENTOR_PRIVILEGES = 'SET_MENTOR_PRIVILEGES';
 
 const jwt_decode = require('jwt-decode');
 
-// const ROOT_URL = 'http://localhost:3000';
 
 export function signinUser({ email, password }) {
   return function(dispatch) {
@@ -29,10 +28,9 @@ export function signinUser({ email, password }) {
         localStorage.setItem('token', response.data.token);
 
 
-        // // - redirect to the appropriate route
+        // - redirect to the appropriate route
         if(decoded_token_data.type === 'padawan') {
-          // browserHistory.push('/padawan_profile/' + decoded_token_data.sub);
-
+          console.log('decoded token data', decoded_token_data, decoded_token_data.id)
           browserHistory.push('/');
         }
         // // - set mentor flag if token indicates the user has mentor privileges
